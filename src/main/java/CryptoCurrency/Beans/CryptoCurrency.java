@@ -19,9 +19,9 @@ public class CryptoCurrency {
     private String name;
     private double price;
     private long marketCap;
-    @JoinColumn(name = "Baskets") // +with this annotation you can change the name for column in bean package when this parameter is object of @ManyToOne
+    @JoinColumn(name = "Baskets") // +with this annotation you can change the name for column in bean package when this parameter is object of @ManyToOne, and now you can send with postman POST of id_basket as number only.
     @ManyToOne
-    private CryptoBasket cryptoBasket;
+    private CryptoBasket cryptoBasket;//Globe
 
     @Override // override lombok toString !!!!!!!!!!!!!!!!!!!!!!!!!+
     public String toString() {

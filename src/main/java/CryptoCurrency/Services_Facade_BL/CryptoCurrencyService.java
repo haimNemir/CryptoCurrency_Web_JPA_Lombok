@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import CryptoCurrency.Beans.CryptoCurrency;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service//tells Spring this Service is yours
 public class CryptoCurrencyService {
@@ -44,8 +45,12 @@ public class CryptoCurrencyService {
         return false;
     }
 
+
     public void updateCurrency(CryptoCurrency currency) {
-        cryptoCurrencyRepository.save(currency);
+        if (cryptoCurrencyRepository.existsById(currency.getId()))
+            cryptoCurrencyRepository.save(currency);
+        else
+            throw new NoSuchElementException("There is not such Crypto currency!");
     }
 
     public void updateCurrencyPrice(CryptoCurrency currency) {

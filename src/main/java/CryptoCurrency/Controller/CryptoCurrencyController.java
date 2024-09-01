@@ -3,9 +3,12 @@ package CryptoCurrency.Controller;
 import CryptoCurrency.Beans.CryptoCurrency;
 import CryptoCurrency.Services_Facade_BL.CryptoCurrencyService;
 import io.swagger.v3.oas.annotations.Hidden;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController//tells to spring web that is belonged to you and can access from chrome+
 @RequestMapping("CryptoCurrency")
@@ -60,16 +63,4 @@ public class CryptoCurrencyController {
     public void updateCurrencyByPrice(CryptoCurrency currency) {
         cryptoCurrencyService.updateCurrencyPrice(currency);
     }
-
-
-// +   <dependency> // for documentation(תיעוד) on our web server, how to get all info from witch URL. This dependency can't get from Spring initializer, only menially entering to "POM" document, after that you enter chrome and enter this URL: http://localhost:8080/swagger-ui.html and you will get the documentation. Delete we don't give access to the whole world, we will add a password, Or with @Hidden annotation above the class CryptoController, you can hide it.
-//			<groupId>org.springdoc</groupId>
-//			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-//			<version>2.3.0</version>
-//	  </dependency>
-//  {
-//+    @JoinColumn(name = "Baskets") = with this annotation you can change the name for column in bean package when this parameter is object of @ManyToOne
-//    @ManyToOne
-//    private CryptoBasket cryptoBasket;
-//  }
 }

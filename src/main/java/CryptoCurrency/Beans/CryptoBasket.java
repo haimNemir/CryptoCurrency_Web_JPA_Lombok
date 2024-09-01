@@ -22,6 +22,6 @@ public class CryptoBasket {
     @Enumerated(EnumType.STRING)
     private Reliability reliability;
     @OneToMany(mappedBy = "cryptoBasket")
-    @JsonIgnore // tell spring, when you send CryptoBasket object with JSON text don't send this list, and like so can we prevent infinity loop when we run this from web(postman). the reason there is an infinity loop is that CryptoBasket calls to "List<CryptoCurrency>" and CryptoCurrency calls for the CryptoBasket from the method toString of "lombok"
+    @JsonIgnore //+ tell spring, when you send CryptoBasket object with JSON text don't send this list, and like so can we prevent infinity loop when we run this from web(postman). the reason there is an infinity loop is that CryptoBasket calls to "List<CryptoCurrency>" and CryptoCurrency calls for the CryptoBasket from the method toString of "lombok"+
     private List<CryptoCurrency> currency;
 }
